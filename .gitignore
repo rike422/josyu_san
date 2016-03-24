@@ -1,0 +1,5 @@
+/db/josyu_san_development
+/db/josyu_san_test
+/public/assets*
+/tmp
+/vendor/bundle
