@@ -31,15 +31,58 @@ Hanami::Model.configure do
   #
   mapping do
     collection :users do
-      entity     User
+      entity User
       repository UserRepository
-
-      attribute :id,   Integer
+      attribute :id, Integer
       attribute :name, String
       attribute :nickname, String
       attribute :image, String
       attribute :email, String
       attribute :github_access_token, String
+    end
+
+    collection :repositories do
+      entity Repository
+      repository RepositoryRepository
+      attribute :id, Integer
+      attribute :name, Strin
+    end
+    collection :build_statuses do
+      entity BuildStatus
+      repository BuildStatusRepository
+      attribute :id, Integer
+      attribute :pull_id, Integer
+      attribute :builder, String
+      attribute :status, Integer
+      attribute :url, String
+      attribute :merge_sha
+    end
+    collection :mergeables do
+      entity Mergeable
+      repository MergeableRepository
+      attribute :id, Integer
+      foreign_key :pull_id, Integer
+      column :status, Integer
+    end
+    collection :pulls do
+      entity Pull
+      repository PullRepository
+      attribute :id, Integer
+      attribute :repository_id, Integer
+      attribute :num, Integer
+      attribute :status, String
+      attribute :merge_sha, String
+      attribute :title, String
+      attribute :body, String
+      attribute :head_sha, String
+      attribute :head_ref, String
+      attribute :base_ref, String
+      attribute :assignee, String
+      attribute :approved_by, String
+      attribute :priority, Integer
+      attribute :try_, Integer
+      attribute :rollup, Integer
+      attribute :delegate, String
     end
   end
 end.load!
@@ -50,7 +93,7 @@ Hanami::Mailer.configure do
   # See http://hanamirb.org/guides/mailers/delivery
   delivery do
     development :test
-    test        :test
+    test :test
     # production :stmp, address: ENV['SMTP_PORT'], port: 1025
   end
 end.load!
