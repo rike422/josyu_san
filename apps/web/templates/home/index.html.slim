@@ -1,0 +1,16 @@
+- if signed_in?
+  div
+    h2
+      | Dashboard
+    p
+      = "Welcome, #{current_user.display_name}"
+    p
+      = link_to_tickets
+    p
+      = link_to_project
+- else
+  div
+    h2
+      | Link your GrooveHQ tickets to Github
+    p
+      = link_to "Sign in with Github", "/auth/github"
