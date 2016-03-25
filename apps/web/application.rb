@@ -74,11 +74,12 @@ module Web
       #
       # See: http://www.rubydoc.info/gems/rack/Rack/Session/Cookie
       #
-      # sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
+      sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
+
 
       # Configure Rack middleware for this application
       #
-      #middleware.use Rack::Protection
+      # middleware.use Rack::Protection
 
       middleware.use OmniAuth::Builder do
         provider :github, ENV["GITHUB_KEY"], ENV["GITHUB_SECRET"]
@@ -261,7 +262,7 @@ module Web
         # Use digest file name for asset paths
         #
         # See: http://hanamirb.org/guides/assets/digest
-        digest  true
+        digest true
 
         # Content Delivery Network (CDN)
         #
