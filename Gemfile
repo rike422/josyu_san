@@ -8,6 +8,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 
 gem 'slim'
+gem 'pg'
 
 group :test do
   gem 'minitest'
