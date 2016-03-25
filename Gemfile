@@ -7,6 +7,8 @@ gem 'hanami-model', '~> 0.5'
 gem 'omniauth'
 gem 'omniauth-github'
 
+gem 'slim'
+
 group :test do
   gem 'minitest'
   gem 'capybara'
