@@ -3,8 +3,8 @@ Hanami::Model.migration do
     create_table :pulls do
       primary_key :id
       foreign_key :repository_id, :repositories, on_delete: :cascade, null: false
-      column :num, Integer null: false
-      column :status, String null: false
+      column :num, Integer, null: false
+      column :status, String, null: false
       column :merge_sha, String
       column :title, String
       column :body, String

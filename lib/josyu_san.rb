@@ -45,7 +45,7 @@ Hanami::Model.configure do
       entity Repository
       repository RepositoryRepository
       attribute :id, Integer
-      attribute :name, Strin
+      attribute :name, String
     end
     collection :build_statuses do
       entity BuildStatus
@@ -55,14 +55,14 @@ Hanami::Model.configure do
       attribute :builder, String
       attribute :status, Integer
       attribute :url, String
-      attribute :merge_sha
+      attribute :merge_sha, String
     end
     collection :mergeables do
       entity Mergeable
       repository MergeableRepository
       attribute :id, Integer
-      foreign_key :pull_id, Integer
-      column :status, Integer
+      attribute :pull_id, Integer
+      attribute :status, Integer
     end
     collection :pulls do
       entity Pull
